@@ -8,7 +8,9 @@ namespace WpfUtils.Launchers
 {
     /// <summary>
     /// Provides a method for launching only a single application instance.
-    /// If an instance already exists, that process will gain focus.
+    /// If an instance already exists, the class will throw a <see cref="SingletonApplicationExistsException"/>.
+    /// Catch this exception to handle special logic like passing focus to the existing instance, or
+    /// displaying an error message.
     /// </summary>
     public class SingletonApplicationLauncher : IApplicationLauncher, IDisposable
     {

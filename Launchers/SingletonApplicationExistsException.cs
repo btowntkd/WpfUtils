@@ -4,7 +4,8 @@ using System.Runtime.Serialization;
 namespace WpfUtils.Launchers
 {
     /// <summary>
-    /// 
+    /// Exception thrown when the <see cref="SingletonApplicationLauncher"/> determines that an application instance
+    /// already exists.  Catch this exception to handle special logic like manually assigning focus to the external instance.
     /// </summary>
     public class SingletonApplicationExistsException : Exception, ISerializable
     {
