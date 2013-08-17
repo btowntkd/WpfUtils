@@ -35,7 +35,8 @@ namespace WpfUtils.Extensions
         /// <param name="handler">The current EventHandler.</param>
         /// <param name="sender">The object in which the event was raised.</param>
         /// <param name="args">The event args.</param>
-        public static void Raise<TEventArgs>(this EventHandler<TEventArgs> handler, object sender, TEventArgs args) where TEventArgs : EventArgs
+        public static void Raise<TEventArgs>(this EventHandler<TEventArgs> handler, object sender, TEventArgs args)
+            where TEventArgs : EventArgs
         {
             if (handler != null)
             {
