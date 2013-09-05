@@ -65,7 +65,7 @@ namespace WpfUtils.Services
 
         #endregion
 
-        #region Public Properties
+        #region Public Methods / Properties
 
         /// <summary>
         /// Get the value indicating whether the current process 

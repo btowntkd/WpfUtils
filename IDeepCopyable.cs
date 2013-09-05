@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace WpfUtils
 {
     /// <summary>
     /// Provides an interface through which to create deep copies of objects.
     /// </summary>
-    /// <typeparam name="T">The type of the object being copied.</typeparam>
+    /// <typeparam name="T">The type of the object supporting deep-copy functionality.</typeparam>
     public interface IDeepCopyable<T>
+        where T : IDeepCopyable<T>
     {
-        new T DeepCopy();
+        /// <summary>
+        /// Perform a deep copy of the object, returning the cloned instance.
+        /// </summary>
+        /// <returns>Returns a deeply-cloned instance of the current object.</returns>
+        T DeepCopy();
     }
 }

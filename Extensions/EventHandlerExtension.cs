@@ -8,8 +8,6 @@ namespace WpfUtils.Extensions
     /// </summary>
     public static class EventHandlerExtension
     {
-        #region EventHandler Extensions
-
         /// <summary>
         /// Raises the Event, safely checking for a null value first.
         /// </summary>
@@ -23,10 +21,6 @@ namespace WpfUtils.Extensions
                 handler(sender, args);
             }
         }
-
-        #endregion
-
-        #region EventHandler{T} Extensions
 
         /// <summary>
         /// Raises the Event, safely checking for a null value first.
@@ -43,7 +37,5 @@ namespace WpfUtils.Extensions
                 handler(sender, args);
             }
         }
-
-        #endregion
     }
 }
