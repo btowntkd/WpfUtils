@@ -58,6 +58,7 @@
     <Compile Include="Launchers\IApplicationLauncher.cs" />
     <Compile Include="Launchers\SingletonApplicationExistsException.cs" />
     <Compile Include="Launchers\SingletonApplicationLauncher.cs" />
+    <Compile Include="Numeric\IParseableDataType.cs" />
     <Compile Include="Patterns\FrozenObjectException.cs" />
     <Compile Include="Patterns\IFreezable.cs" />
     <Compile Include="Patterns\Singleton.cs" />
