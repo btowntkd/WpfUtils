@@ -42,13 +42,12 @@ namespace WpfUtils.Patterns
                             {
                                 // Binding flags include private constructors.
                                 constructor = typeof(T).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, new Type[0], null);
+                                _instance = (T)constructor.Invoke(null);
                             }
                             catch (Exception exception)
                             {
                                 throw new SingletonConstructorException(exception);
                             }
-
-                            _instance = (T)constructor.Invoke(null);
                         }
                     }
                 }
