@@ -58,9 +58,13 @@
     <Compile Include="Launchers\IApplicationLauncher.cs" />
     <Compile Include="Launchers\SingletonApplicationExistsException.cs" />
     <Compile Include="Launchers\SingletonApplicationLauncher.cs" />
+    <Compile Include="Numeric\ParseableInt64.cs" />
+    <Compile Include="Numeric\ParseableByte.cs" />
+    <Compile Include="Numeric\ParseableInt16.cs" />
     <Compile Include="Numeric\IParseableDataType.cs" />
     <Compile Include="Numeric\IProvideRawData.cs" />
-    <Compile Include="Numeric\ParseableInt.cs" />
+    <Compile Include="Numeric\NumericBase.cs" />
+    <Compile Include="Numeric\ParseableInt32.cs" />
     <Compile Include="Patterns\FrozenObjectException.cs" />
     <Compile Include="Patterns\IFreezable.cs" />
     <Compile Include="Patterns\Singleton.cs" />

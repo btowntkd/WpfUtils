@@ -41,7 +41,7 @@ namespace WpfUtils.Patterns
                             try
                             {
                                 // Binding flags include private constructors.
-                                constructor = typeof(T).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, new Type[0], null);
+                                constructor = typeof(T).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null);
                                 _instance = (T)constructor.Invoke(null);
                             }
                             catch (Exception exception)
