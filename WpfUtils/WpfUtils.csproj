@@ -58,6 +58,7 @@
     <Compile Include="Launchers\IApplicationLauncher.cs" />
     <Compile Include="Launchers\SingletonApplicationExistsException.cs" />
     <Compile Include="Launchers\SingletonApplicationLauncher.cs" />
+    <Compile Include="MathEx.cs" />
     <Compile Include="Numeric\ParseableInt64.cs" />
     <Compile Include="Numeric\ParseableByte.cs" />
     <Compile Include="Numeric\ParseableInt16.cs" />
