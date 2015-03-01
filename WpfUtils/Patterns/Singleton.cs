@@ -8,51 +8,33 @@ namespace WpfUtils.Patterns
     /// which contain a private, parameter-less constructor.
     /// </summary>
     /// <typeparam name="T">The underlying singleton type.</typeparam>
-    public static class Singleton<T> where T : class
+    public abstract class Singleton<T> where T : Singleton<T>
     {
-        private static T _instance = null;
-        private static readonly object _creationLock = new object();
+        private static readonly Lazy<T> _instance;
 
         /// <summary>
-        /// Default static constructor prevents the Type from being marked with beforefieldinit.
+        /// Default static constructor initializes Lazy constructor.
         /// </summary>
-        /// <remarks>
-        /// This simply makes sure that static fields initialization occurs 
-        /// when the Instance property is called the first time, and not before.
-        /// </remarks>
         static Singleton()
-        { }
+        {
+            _instance = new Lazy<T>(() =>
+            {
+                try
+                {
+                    // Binding flags include private constructors.
+                    var constructor = typeof(T).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null);
+                    return (T)constructor.Invoke(null);
+                }
+                catch (Exception exception)
+                {
+                    throw new SingletonConstructorException(exception);
+                }
+            });
+        }
 
         /// <summary>
         /// Get the singleton instance for the class.
         /// </summary>
-        public static T Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    lock (_creationLock)
-                    {
-                        //Use the Double-check lock pattern
-                        if (_instance == null)
-                        {
-                            ConstructorInfo constructor = null;
-                            try
-                            {
-                                // Binding flags include private constructors.
-                                constructor = typeof(T).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null);
-                                _instance = (T)constructor.Invoke(null);
-                            }
-                            catch (Exception exception)
-                            {
-                                throw new SingletonConstructorException(exception);
-                            }
-                        }
-                    }
-                }
-                return _instance;
-            }
-        }
+        public static T Instance { get { return _instance.Value; } }
     }
 }
