@@ -58,7 +58,7 @@ namespace WpfUtils
 
         #endregion
 
-        #region Public Constructors
+        #region Conversion Operators
 
         /// <summary>
         /// Implicit conversion from <see cref="UInt32"/>.

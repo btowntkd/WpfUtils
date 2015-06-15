@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace WpfUtils
 {
     /// <summary>
-    /// Provides a disposable, managed replacement for allocating memory using <see cref="Marshal.AllocHGlobal"/> and <see cref="Marshal.FreeHGlobal"/>
+    /// Provides a disposable, managed context for allocating memory, eliminating the need
+    /// to use <see cref="Marshal.AllocHGlobal"/> and <see cref="Marshal.FreeHGlobal"/>.
     /// </summary>
     public class UnmanagedMemoryContext : IDisposable
     {
