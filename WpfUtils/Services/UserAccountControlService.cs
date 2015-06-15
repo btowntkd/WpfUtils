@@ -138,7 +138,12 @@ namespace WpfUtils.Services
             startInfo.UseShellExecute = true;
 
             //Launch the new process
-            Process.Start(startInfo);
+            try
+            {
+                Process.Start(startInfo);
+            }
+            catch(Exception ex)
+            { /* Do nothing: the application is already shutting down */ }
         }
 
         /// <summary>
